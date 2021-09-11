@@ -1,10 +1,7 @@
 package com.wolftiger.imcapp
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.doAfterTextChanged
 import androidx.core.widget.doOnTextChanged
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,9 +15,6 @@ class MainActivity() : AppCompatActivity() {
     }
 
     private fun setListener() {
-//        edtAltura?.doAfterTextChanged { text ->
-//            Toast.makeText(this, text.toString(), Toast.LENGTH_SHORT).show()
-//        }
         edtPeso?.doOnTextChanged { text, _, _, _ ->
             txtTitle?.text = text
         }
@@ -40,7 +34,6 @@ class MainActivity() : AppCompatActivity() {
     }
 
     private fun imcResult(imc: Float) : String {
-
         return when {
             imc <= 18.59f -> "Abaixo do peso"
             imc in 18.60f..24.99f ->  "Peso ideal (Parabéns)"
@@ -50,6 +43,5 @@ class MainActivity() : AppCompatActivity() {
             imc >= 40f -> "Obesidade grau 3 (mórbida)"
             else -> "Dados inconsistentes, verifique"
         }
-
     }
 }
